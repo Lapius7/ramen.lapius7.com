@@ -1,0 +1,138 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/noto-sans-jp";
+@import "@fontsource/shippori-mincho/500.css";
+@import "@fontsource/shippori-mincho/700.css";
+@import "./components/arc/foundation.css";
+
+@custom-variant dark (&:is(.dark *, [data-theme="dark"] *));
+
+@theme inline {
+    --font-heading: var(--font-sans);
+    --font-sans: 'Noto Sans JP Variable', sans-serif;
+    --font-brand: 'Shippori Mincho', 'Noto Serif JP', serif;
+    --color-sidebar-ring: var(--sidebar-ring);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar: var(--sidebar);
+    --color-chart-5: var(--chart-5);
+    --color-chart-4: var(--chart-4);
+    --color-chart-3: var(--chart-3);
+    --color-chart-2: var(--chart-2);
+    --color-chart-1: var(--chart-1);
+    --color-ring: var(--ring);
+    --color-input: var(--input);
+    --color-border: var(--border);
+    --color-destructive: var(--destructive);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-accent: var(--accent);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-muted: var(--muted);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-secondary: var(--secondary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-primary: var(--primary);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-popover: var(--popover);
+    --color-card-foreground: var(--card-foreground);
+    --color-card: var(--card);
+    --color-foreground: var(--foreground);
+    --color-background: var(--background);
+    --color-surface: var(--surface);
+    --color-surface-muted: var(--surface-muted);
+    --color-text-secondary: var(--text-secondary);
+    --color-text-muted: var(--text-muted);
+    --color-border-strong: var(--border-strong);
+    --radius-sm: calc(var(--radius) * 0.6);
+    --radius-md: calc(var(--radius) * 0.8);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) * 1.4);
+    --radius-2xl: calc(var(--radius) * 1.8);
+    --radius-3xl: calc(var(--radius) * 2.2);
+    --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    }
+  body {
+    @apply bg-background text-foreground;
+    }
+  html {
+    @apply font-sans;
+    }
+}
+
+/* Theme: one token set for both shadcn and Arc. Broth-red accent on warm paper. */
+:root, :root[data-theme="light"] {
+  --map-base: oklch(86% 0.022 78);
+  --background: oklch(97.5% 0.012 85);
+  --surface: oklch(99% 0.008 85);
+  --surface-raised: oklch(99.5% 0.006 85);
+  --surface-muted: oklch(94.5% 0.016 82);
+  --foreground: oklch(24% 0.02 50);
+  --text-secondary: oklch(45% 0.02 55);
+  --text-muted: oklch(55% 0.018 60);
+  --border: oklch(90% 0.016 80);
+  --border-subtle: oklch(93.5% 0.014 80);
+  --border-strong: oklch(78% 0.02 70);
+  --accent: oklch(54% 0.19 33);
+  --accent-strong: oklch(45% 0.17 33);
+  --accent-subtle: oklch(54% 0.19 33 / .1);
+  --accent-foreground: oklch(98% 0.01 85);
+  --control-on: oklch(54% 0.19 33);
+  --card: var(--surface);
+  --card-foreground: var(--foreground);
+  --popover: var(--surface-raised);
+  --popover-foreground: var(--foreground);
+  --primary: var(--foreground);
+  --primary-foreground: var(--background);
+  --secondary: var(--surface-muted);
+  --secondary-foreground: var(--foreground);
+  --muted: var(--surface-muted);
+  --muted-foreground: var(--text-secondary);
+  --destructive: oklch(55% 0.2 27);
+  --input: var(--border);
+  --ring: var(--border-strong);
+  --radius: 0.75rem;
+  --font-display: var(--font-brand);
+  --font-body: 'Noto Sans JP Variable', sans-serif;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --map-base: oklch(28% 0.018 50);
+  --background: oklch(18% 0.014 50);
+  --surface: oklch(21% 0.016 50);
+  --surface-raised: oklch(24% 0.018 50);
+  --surface-muted: oklch(26% 0.018 50);
+  --foreground: oklch(94% 0.012 85);
+  --text-secondary: oklch(76% 0.016 80);
+  --text-muted: oklch(64% 0.016 75);
+  --border: oklch(30% 0.018 50);
+  --border-subtle: oklch(25% 0.016 50);
+  --border-strong: oklch(42% 0.02 50);
+  --accent: oklch(70% 0.17 38);
+  --accent-strong: oklch(78% 0.14 40);
+  --accent-subtle: oklch(70% 0.17 38 / .16);
+  --accent-foreground: oklch(18% 0.014 50);
+  --control-on: oklch(70% 0.17 38);
+  --destructive: oklch(70% 0.19 25);
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+.font-brand { font-family: var(--font-brand); font-feature-settings: "palt"; }
+.tnum { font-variant-numeric: tabular-nums; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+
+html, body { overflow-x: clip; }
+@keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+.rise { animation: rise .4s cubic-bezier(.2,.8,.2,1) both; animation-delay: calc(var(--i, 0) * 30ms); }
+img { outline: 1px solid oklch(0% 0 0 / .08); outline-offset: -1px; }
